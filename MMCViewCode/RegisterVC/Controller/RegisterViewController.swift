@@ -14,7 +14,8 @@ class RegisterViewController: UIViewController {
     
     var registerScreen:RegisterScreen?
     let db = Firestore.firestore()
-    
+    var auth: Auth?
+    var firestore: Firestore?
     
     
     override func loadView() {
@@ -25,28 +26,46 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerScreen?.delegate(delegate: self)
-        self.registerScreen?.configTextFieldDelegate(delegate: self)
+        self.screenDelegate()
         hideKeyboardWhenTappedAround()
+        self.instantiateFirebase()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    private func addData(){
-        
-        var ref: DocumentReference? = nil
-        ref = db.collection("name").addDocument(data: [
-            "name": registerScreen?.nameTextField.text ?? ""
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
+    private func screenDelegate(){
+        self.registerScreen?.delegate(delegate: self)
+        self.registerScreen?.configTextFieldDelegate(delegate: self)
+    }
+    
+    private func instantiateFirebase(){
+        self.auth = Auth.auth()
+        self.firestore = Firestore.firestore()
+    }
+    
+    private func registerUser(){
+        if let name = self.registerScreen?.nameTextField.text, let email = self.registerScreen?.emailTextField.text, let password = self.registerScreen?.passwordTextField.text{
+            auth?.createUser(withEmail: email, password: password) { (data, error) in
+                if error == nil{
+                    if let idUser = data?.user.uid{
+                        self.firestore?.collection("users")
+                            .document( idUser )
+                            .setData([
+                                "name": name,
+                                "email": email,
+                                "id": idUser,
+                            ])
+                    }
+                }
             }
+            print("usuário cadastrado com sucesso")
+            self.navigationController?.popToRootViewController(animated: true)
+        }else{
+            print("Error")
         }
-        
     }
 }
 
@@ -56,18 +75,8 @@ extension RegisterViewController:RegisterScreenProtocol{
     }
     
     func tappedRegisterButton() {
-        Auth.auth().createUser(withEmail: registerScreen?.emailTextField.text ?? "" , password: registerScreen?.passwordTextField.text ?? "") { authResult, error in
-            if error != nil {
-                print("erro ao cadastrar")
-            }else{
-                print("usuário cadastrado com sucesso")
-                self.addData()
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-            
-        }
+        self.registerUser()
     }
-    
 }
 
 extension RegisterViewController:UITextFieldDelegate{

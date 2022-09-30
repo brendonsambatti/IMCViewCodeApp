@@ -33,7 +33,6 @@ class HomeScreen: UIView {
     lazy var emailLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "user_name"
         label.font = UIFont.systemFont(ofSize: 20, weight: .black)
         label.textAlignment = .center
         return label

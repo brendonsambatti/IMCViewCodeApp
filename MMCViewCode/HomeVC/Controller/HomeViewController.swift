@@ -14,7 +14,9 @@ import FirebaseCore
 class HomeViewController: UIViewController {
     
     var homeScreen:HomeScreen?
-    
+    var firestore: Firestore?
+    var auth: Auth?
+    var idUserLog: String?
     let database = Firestore.firestore()
     
     override func loadView() {
@@ -28,11 +30,29 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        self.firestore = Firestore.firestore()
+        self.auth = Auth.auth()
+        if let idUser = auth?.currentUser?.uid{
+            self.idUserLog = idUser
+        }
+        getUserName()
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    public func getUserName(){
+        let user = self.firestore?.collection("users").document(self.idUserLog ?? "")
+        user?.getDocument(completion: { documentSnapshot, error in
+            if error == nil{
+                let data = documentSnapshot?.data()
+                let dataName = data?["name"]
+                self.homeScreen?.emailLabel.text = dataName as? String
+            }
+        } )
     }
     
     

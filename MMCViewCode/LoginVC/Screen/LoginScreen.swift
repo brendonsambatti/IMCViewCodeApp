@@ -32,6 +32,7 @@ class LoginScreen: UIView {
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Digite o email"
+        textField.text = "breendonpsn@g.com"
         textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
@@ -58,6 +59,7 @@ class LoginScreen: UIView {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.borderStyle = .roundedRect
         textfield.placeholder = "Digite a senha"
+        textfield.text = "123456"
         textfield.isSecureTextEntry = true
         textfield.layer.cornerRadius = 10
         textfield.font = UIFont.systemFont(ofSize: 16)

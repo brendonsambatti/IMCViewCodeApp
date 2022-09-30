@@ -13,7 +13,7 @@
 		DA276C7728E536E90092758F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA276C7628E536E90092758F /* RegisterViewController.swift */; };
 		DA276C7A28E537070092758F /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA276C7928E537070092758F /* RegisterScreen.swift */; };
 		DA276C7E28E5E8FD0092758F /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA276C7D28E5E8FD0092758F /* Textfield.swift */; };
-		DA276C8028E611A10092758F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA276C7F28E611A10092758F /* GoogleService-Info.plist */; };
+		DA61FB7228E744F900744FC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA61FB7128E744F900744FC2 /* GoogleService-Info.plist */; };
 		DAE15B4A28C25930007B82E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE15B4928C25930007B82E0 /* AppDelegate.swift */; };
 		DAE15B4C28C25930007B82E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE15B4B28C25930007B82E0 /* SceneDelegate.swift */; };
 		DAE15B4E28C25930007B82E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE15B4D28C25930007B82E0 /* LoginViewController.swift */; };
@@ -31,7 +31,7 @@
 		DA276C7628E536E90092758F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DA276C7928E537070092758F /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		DA276C7D28E5E8FD0092758F /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
-		DA276C7F28E611A10092758F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA61FB7128E744F900744FC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAE15B4628C25930007B82E0 /* MMCViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMCViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE15B4928C25930007B82E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE15B4B28C25930007B82E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				DAE15B5228C2593B007B82E0 /* Assets.xcassets */,
 				DAE15B5428C2593B007B82E0 /* LaunchScreen.storyboard */,
 				DAE15B5728C2593B007B82E0 /* Info.plist */,
-				DA276C7F28E611A10092758F /* GoogleService-Info.plist */,
+				DA61FB7128E744F900744FC2 /* GoogleService-Info.plist */,
 			);
 			path = MMCViewCode;
 			sourceTree = "<group>";
@@ -250,8 +250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAE15B5628C2593B007B82E0 /* LaunchScreen.storyboard in Resources */,
+				DA61FB7228E744F900744FC2 /* GoogleService-Info.plist in Resources */,
 				DAE15B5328C2593B007B82E0 /* Assets.xcassets in Resources */,
-				DA276C8028E611A10092758F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
