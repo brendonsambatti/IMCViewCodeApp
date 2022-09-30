@@ -13,11 +13,14 @@ import FirebaseCore
 
 class HomeViewController: UIViewController {
     
-    var homeScreen:HomeScreen?
-    var firestore: Firestore?
-    var auth: Auth?
-    var idUserLog: String?
-    let database = Firestore.firestore()
+    private var alert:AlertController?
+    private var homeScreen:HomeScreen?
+    private var firestore: Firestore?
+    private var auth: Auth?
+    private var idUserLog: String?
+    private let database = Firestore.firestore()
+    private let firebaseAuth = Auth.auth()
+
     
     override func loadView() {
         self.homeScreen = HomeScreen()
@@ -36,13 +39,9 @@ class HomeViewController: UIViewController {
             self.idUserLog = idUser
         }
         getUserName()
-        
-        
+        self.alert = AlertController(controller: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
     
     public func getUserName(){
         let user = self.firestore?.collection("users").document(self.idUserLog ?? "")
@@ -74,13 +73,28 @@ class HomeViewController: UIViewController {
         
         if result <= 18.5 {
             homeScreen?.resultLabel.text = "Considerado: Magreza"
-        }else if result > 18.5 && result <= 24.9{
+        }else if result > 18.5 && result <= 25{
             homeScreen?.resultLabel.text = "Considerado: Normal"
-        }else if result > 24.5 &&  result <= 30{
+        }else if result > 25 && result <= 30{
             homeScreen?.resultLabel.text = "Considerado: Sobrepeso"
         }else if result > 30.0 {
             homeScreen?.resultLabel.text = "Considerado: Obesidade"
         }
+    }
+    
+    private func exitConfig(){
+        self.alert?.showAlert(title: "Atenção", message: "Você tem certeza que deseja sair?", titleButton: "Sair", titleCancel: "Cancelar", completion: { value in
+            if value == .aceitar{
+                do {
+                    try self.firebaseAuth.signOut()
+                } catch let signOutError as NSError{
+                    print("Error signing out: %@", signOutError)
+                }
+                self.navigationController?.popToRootViewController(animated: true)
+            }else{
+                self.dismiss(animated: true)
+            }
+        })
     }
     
     private func moreInfoAlert(){
@@ -96,6 +110,10 @@ class HomeViewController: UIViewController {
     }
 }
 extension HomeViewController:HomeScreenProtocol{
+    func exitButton() {
+        self.exitConfig()
+    }
+    
     
     func moreInfoButton() {
         self.moreInfoAlert()

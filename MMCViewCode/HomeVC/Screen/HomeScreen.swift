@@ -10,6 +10,7 @@ import UIKit
 protocol HomeScreenProtocol:AnyObject{
     func calculateIMC()
     func moreInfoButton()
+    func exitButton()
     
 }
 
@@ -99,6 +100,15 @@ class HomeScreen: UIView {
         return button
     }()
     
+    lazy var exitButton:UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(systemName: "arrow.uturn.backward.circle.fill"), for: .normal)
+        button.tintColor = UIColor(named: "buttonColor")
+        button.addTarget(self, action: #selector(tappedExitButton), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var moreInfoButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -122,6 +132,10 @@ class HomeScreen: UIView {
     
     @objc private func tappedMoreinfoButton(_ sender:UIButton){
         self.delegate?.moreInfoButton()
+    }
+    
+    @objc private func tappedExitButton(_ sender:UIButton){
+        self.delegate?.exitButton()
     }
     
     override init(frame: CGRect) {
@@ -156,10 +170,16 @@ class HomeScreen: UIView {
         self.addSubview(calculateButton)
         self.addSubview(IMCLabel)
         self.addSubview(moreInfoButton)
+        self.addSubview(exitButton)
     }
     
     private func configConstraints(){
         NSLayoutConstraint.activate([
+            self.exitButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 5),
+            self.exitButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 5),
+            self.exitButton.widthAnchor.constraint(equalToConstant: 40),
+            self.exitButton.heightAnchor.constraint(equalToConstant: 40),
+            
             self.userImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
             self.userImage.heightAnchor.constraint(equalToConstant: 150),
             self.userImage.widthAnchor.constraint(equalToConstant: 100),

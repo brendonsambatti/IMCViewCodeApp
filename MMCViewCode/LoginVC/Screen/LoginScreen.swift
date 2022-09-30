@@ -10,6 +10,7 @@ import UIKit
 protocol LoginScreenProtocol:AnyObject{
     func actionLoginButton()
     func actionRegisterButton()
+    func actionResetPasswordButton()
 }
 
 class LoginScreen: UIView {
@@ -97,6 +98,17 @@ class LoginScreen: UIView {
         return button
     }()
     
+    lazy var resetPasswordButton:UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Esqueceu sua senha?", for: .normal)
+        button.setTitleColor(UIColor(named: "buttonColor"), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.addTarget(self, action: #selector(tappedResetPasswordButton), for: .touchUpInside)
+        return button
+        
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configSuperview()
@@ -118,6 +130,7 @@ class LoginScreen: UIView {
         self.addSubview(passwordTextField)
         self.addSubview(loginButton)
         self.addSubview(registerButton)
+        self.addSubview(resetPasswordButton)
     }
     
     public func configTextFieldDelegate(delegate:UITextFieldDelegate){
@@ -125,12 +138,16 @@ class LoginScreen: UIView {
         self.passwordTextField.delegate = delegate
     }
     
-    @objc private func tappedLoginButton(){
+    @objc private func tappedLoginButton(_ sender:UIButton){
         self.delegate?.actionLoginButton()
     }
 
-    @objc private func tappedRegisterButton(){
+    @objc private func tappedRegisterButton(_ sender:UIButton){
         self.delegate?.actionRegisterButton()        
+    }
+    
+    @objc private func tappedResetPasswordButton(_ sender:UIButton){
+        self.delegate?.actionResetPasswordButton()
     }
     
     private func setupConstraints(){
@@ -163,8 +180,10 @@ class LoginScreen: UIView {
             self.registerButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50),
             self.registerButton.heightAnchor.constraint(equalToConstant: 30),
             self.registerButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
-        
+            self.registerButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            
+            self.resetPasswordButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 5),
+            self.resetPasswordButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         
         ])
     }

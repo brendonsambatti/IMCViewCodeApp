@@ -54,6 +54,11 @@ extension LoginViewController:UITextFieldDelegate{
 }
 
 extension LoginViewController:LoginScreenProtocol{
+    func actionResetPasswordButton() {
+        let passwordVC = ResetPasswordViewController()
+        self.navigationController?.pushViewController(passwordVC, animated: true)
+    }
+    
     func actionLoginButton() {
         print("protocol login button")
         Auth.auth().signIn(withEmail: loginScreen?.emailTextField.text ?? "", password: loginScreen?.passwordTextField.text ?? "") { [weak self] authResult, error in

@@ -14,6 +14,9 @@
 		DA276C7A28E537070092758F /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA276C7928E537070092758F /* RegisterScreen.swift */; };
 		DA276C7E28E5E8FD0092758F /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA276C7D28E5E8FD0092758F /* Textfield.swift */; };
 		DA61FB7228E744F900744FC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA61FB7128E744F900744FC2 /* GoogleService-Info.plist */; };
+		DA765C1A28E77FAE002CF89B /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA765C1928E77FAE002CF89B /* AlertController.swift */; };
+		DA8172DB28E77182005B29DE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8172DA28E77182005B29DE /* ResetPasswordViewController.swift */; };
+		DA8172DD28E77197005B29DE /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8172DC28E77197005B29DE /* ResetPasswordScreen.swift */; };
 		DAE15B4A28C25930007B82E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE15B4928C25930007B82E0 /* AppDelegate.swift */; };
 		DAE15B4C28C25930007B82E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE15B4B28C25930007B82E0 /* SceneDelegate.swift */; };
 		DAE15B4E28C25930007B82E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE15B4D28C25930007B82E0 /* LoginViewController.swift */; };
@@ -32,6 +35,9 @@
 		DA276C7928E537070092758F /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		DA276C7D28E5E8FD0092758F /* Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		DA61FB7128E744F900744FC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA765C1928E77FAE002CF89B /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		DA8172DA28E77182005B29DE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		DA8172DC28E77197005B29DE /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
 		DAE15B4628C25930007B82E0 /* MMCViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMCViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE15B4928C25930007B82E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE15B4B28C25930007B82E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,8 +123,34 @@
 			isa = PBXGroup;
 			children = (
 				DA276C7D28E5E8FD0092758F /* Textfield.swift */,
+				DA765C1928E77FAE002CF89B /* AlertController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DA8172D728E77145005B29DE /* PasswordVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA8172D928E77162005B29DE /* Screen */,
+				DA8172D828E7715A005B29DE /* Controller */,
+			);
+			path = PasswordVC;
+			sourceTree = "<group>";
+		};
+		DA8172D828E7715A005B29DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA8172DA28E77182005B29DE /* ResetPasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA8172D928E77162005B29DE /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				DA8172DC28E77197005B29DE /* ResetPasswordScreen.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		DAE15B3D28C2592F007B82E0 = {
@@ -143,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				DA276C7B28E5E8E30092758F /* Extensions */,
+				DA8172D728E77145005B29DE /* PasswordVC */,
 				DA276C7328E536C00092758F /* RegisterVC */,
 				DA276C6C28E52EDE0092758F /* HomeVC */,
 				DAE15B5D28C26668007B82E0 /* LoginVC */,
@@ -305,12 +338,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA276C6E28E52F070092758F /* HomeViewController.swift in Sources */,
+				DA8172DD28E77197005B29DE /* ResetPasswordScreen.swift in Sources */,
 				DAE15B4E28C25930007B82E0 /* LoginViewController.swift in Sources */,
 				DA276C7728E536E90092758F /* RegisterViewController.swift in Sources */,
 				DA276C7028E52F2B0092758F /* HomeScreen.swift in Sources */,
 				DA276C7E28E5E8FD0092758F /* Textfield.swift in Sources */,
+				DA765C1A28E77FAE002CF89B /* AlertController.swift in Sources */,
 				DA276C7A28E537070092758F /* RegisterScreen.swift in Sources */,
 				DAE15B4A28C25930007B82E0 /* AppDelegate.swift in Sources */,
+				DA8172DB28E77182005B29DE /* ResetPasswordViewController.swift in Sources */,
 				DAE15B6128C266A3007B82E0 /* LoginScreen.swift in Sources */,
 				DAE15B4C28C25930007B82E0 /* SceneDelegate.swift in Sources */,
 			);
