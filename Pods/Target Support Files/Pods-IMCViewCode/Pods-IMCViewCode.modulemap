@@ -1,0 +1,6 @@
+framework module Pods_IMCViewCode {
+  umbrella header "Pods-IMCViewCode-umbrella.h"
+
+  export *
+  module * { export * }
+}
