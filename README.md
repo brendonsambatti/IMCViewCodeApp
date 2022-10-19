@@ -1,6 +1,6 @@
 # IMCViewCodeApp
 # (Em desenvolvimento)
- Aplicativo desenvolvido 100% em ViewCode, usando o Firebase Authentication e Firestore Database 
+ Aplicativo desenvolvido 100% em ViewCode, usando o Firebase Authentication, Firestore Database e Cocoapods.
 
 Ideia do App:
 - Treinar a implementação da autenticação com Firebase Authentication.
